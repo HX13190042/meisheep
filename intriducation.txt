@@ -1,0 +1,9 @@
+进行产品的信息的读取
+1、addAddress.html    为用户的地址信息添加页面
+2、shipAddress.html   为用户的地址显示信息页面
+3、//判断注册的类型是否存在重复，如果有就提示账号已经存在
+$sqlrepeat="select Uaccount from users where Uaccount='$Regmail'";
+echo $sqlrepeat;
+可以输出查询语句进行判断警告信息
+
+goodsDetails.php负责商品的详细信息的显示

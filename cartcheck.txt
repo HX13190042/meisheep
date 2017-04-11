@@ -1,0 +1,108 @@
+cartcheck.txt
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//一开始，让全部的按钮都处于选中
+			     $(document).ready(
+	     	function (){
+	     	var alltotal=0;
+	     	var allstate=true;
+	     	//一开始检测全部的input的状态,将全部的统计显示
+			$(".list-group-item .demo1 :checkbox").each(function(){  
+				allstate=$(this).attr('checked');	
+				if(allstate==true){
+					//获得已经选中的
+				  alltotal+=parseInt($(this).parent().siblings().find('.p-price').text().trim());
+				}
+
+		    })
+		    //分段考虑，考虑不同的状态下的合计数目情况
+		    $('#totalPrice').text(alltotal);
+	     	//总计的费用,初始化为0	     	
+	     	var tempstate=true;
+	     	//仅仅是当全选按钮被点击的时候，才能实现的功能，但其中的
+	     	$('#check5').click(function() {
+	     	  alltotal=0;
+	     	 if(tempstate==true){
+	     	 	//全选按钮选中的状态
+	     	  	$('.demo1 :checkbox').attr("checked", true);
+				$(".list-group-item .demo1 :checkbox").each(function(){  
+					allstate=$(this).attr('checked');	
+					if(allstate==true){
+						//获得已经选中的
+					  alltotal+=parseInt($(this).parent().siblings().find('.p-price').text().trim());
+					}
+
+			    })
+			    $('#totalPrice').text(alltotal);
+	     	  	 tempstate=false;
+	     	  	}
+	     	  else{
+	     	  	$('.demo1 :checkbox').attr("checked", false);
+	     	  	 alltotal=0;
+	     	  	  $('#totalPrice').text(alltotal);
+	     	  	  tempstate=true;
+	     	  }
+	     	});
+	     	//当任意一个按钮被点击的时候，判断剩下的复选框的状态
+	     	var single=true;
+			$(".list-group-item .demo1 :checkbox").click(function(){
+				alltotal=0;
+				allchk();
+				$(".list-group-item .demo1 :checkbox").each(function(){  
+					single=$(this).attr('checked');	
+					if(single==true){
+						 alltotal+=parseInt($(this).parent().siblings().find('.p-price').text().trim());
+					}
+
+			    })
+			     $('#totalPrice').text(alltotal);
+			});
+			//检测全选按钮是否在选中或者未选中状态
+	     	function allchk(){
+			var chknum = $(".list-group-item .demo1 :checkbox").size();//选项总个数,个数为4
+			var chk= 0;
+			//alert(chk);
+			var statenum;
+			var total;
+			var temptotal=0;
+			$(".list-group-item .demo1 :checkbox").each(function(){  
+				statenum=$(this).attr('checked');	
+				if(statenum==true){
+					chk++;
+
+				}
+		    });
+			if(chknum==chk){//全选
+				$("#check5").attr("checked",true);
+			}else{//不全选
+				$("#check5").attr("checked",false);
+			}			 
+			}
+	     });
+	});
+	</script>
+
+
+
+
+
+
+			$('#check5').click(function() {
+			 alltotal=0;
+			if(tempstate==false){
+				$('.demo1 :checkbox').attr("checked", false);
+				$('#totalPrice').text(0);
+				tempstate=true;
+			}else{
+				$('.demo1 :checkbox').attr("checked", true);
+				//将全部的数量以及单价相加
+				$(".list-group-item .demo1 :checkbox").each(function(){  
+					  temprice =parseInt($(this).parent().siblings().find('.p-price').text().trim());
+					  num=parseInt($(this).parent().siblings().find('.count-input').val().trim());
+					 temptotal=temprice*num;
+					alltotal+=temptotal;
+				})
+				$('#totalPrice').text(alltotal);
+				tempstate=false;
+			}
+		})

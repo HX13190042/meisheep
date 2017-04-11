@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script charset="utf-8" src="js/jquery.min.js"></script>
+<script charset="utf-8" src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/goodsDetails.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no" name="format-detection">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1;user-scalable=no;">
+  <title>银行卡管理</title>
+<style>
+.state1{
+    color:#aaa;
+    font-size: 0.2rem;
+}
+.state2{
+    color:#ED8304;
+    font-size: 0.2rem;
+}
+.state3{
+    color:red;
+    font-size: 0.2rem;
+}
+.state4{
+    color:green;
+    font-size: 0.2rem;
+}
+</style>
+</head>
+<body>
+  <div class="gDetaContainer" style="background:#fff">
+    <header class="header">
+      <div class="fix_nav">
+        <div style="max-width:768px;margin:0 auto;background:#D91D37;position: relative;">
+          <a class="nav-left back-icon" href="bankcard.php">返回</a>
+          <div class="tit">添加银行卡</div>
+        </div>
+      </div>
+    </header>
+  <div class="cardcontainner">
+    <form method="post" action="card.php" class="formpage">
+      <div>
+        <label>银行卡号</label>
+        <input name="banknum" type="text" placeholder="请输入你的银行卡号">
+        <span class='state1'>请输入银行卡号</span>
+      </div>
+      <div>
+        <label>持卡人姓名</label>
+        <input name="bankname" type="text" placeholder="请输入持卡人姓名">
+        <span class='state1'>请输入持卡人</span>
+      </div>
+      <div>
+        <label>开户银行</label>
+        <input name="bank" type="text" placeholder="请输入你的开户银行">
+        <span class='state1'>请输入开户银行</span>
+      </div>
+      <div>
+        <label>手机号码</label>
+        <input name="bankphone" type="text" placeholder="请输入你的手机号码">
+        <span class='state1'>请输入手机号码</span>
+      </div>
+      <div >
+      <label></label>
+      <input type="submit" value="保存银行卡"  class="submit"></div>
+    </form>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var ok1=false;
+    var ok2=false;
+    $('input[name="banknum"]').focus( function(){
+       $(this).next().text('银行卡号应该为11-20位之间').removeClass('state1').addClass('state2');
+    }).blur(function(){
+      if($(this).val().length >= 11 && $(this).val().length <=20 && $(this).val()!=''){
+        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+        ok1=true;
+    }else{
+        $(this).next().text('银行卡号应该为11-20位之间').removeClass('state1').addClass('state3');
+    }
+    });
+
+    $('input[name="bankname"]').focus(function(){
+        $(this).next().text('持卡人姓名应该为2-12位之间').removeClass('state1').addClass('state2');
+    }).blur(function(){
+      if($(this).val().length >= 2 && $(this).val().length <=12 && $(this).val()!=''){
+        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+        ok1=true;
+    }else{
+        $(this).next().text('持卡人姓名应该为2-12位之间').removeClass('state1').addClass('state3');
+    }
+    });
+
+    $('input[name="bank"]').focus(function(){
+        $(this).next().text('开户银行应该为4-20位之间').removeClass('state1').addClass('state2');
+    }).blur(function(){
+      if($(this).val().length >= 4 && $(this).val().length <=20 && $(this).val()!=''){
+        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+        ok1=true;
+    }else{
+        $(this).next().text('持卡人姓名应该为2-12位之间').removeClass('state1').addClass('state3');
+    }
+    });
+    $('input[name="bankphone"]').focus(function(){
+        $(this).next().text('手机号码应该是11位').removeClass('state1').addClass('state2');
+    }).blur(function(){
+      if($(this).val().length ==11){
+        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+        ok1=true;
+    }else{
+        $(this).next().text('手机号码应该11位').removeClass('state1').addClass('state3');
+    }
+    });
+
+$('.submit').click(function(){
+       if(ok1 && ok2 ){
+            $('.formpage').submit();
+        }else{
+            return false;
+        }
+    });
+
+
+
+
+     });
+</script>
+</html>

@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script charset="utf-8" src="js/jquery.min.js"></script>
+<script charset="utf-8" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/formValidation.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no" name="format-detection">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1;user-scalable=no;">
+	<title>账户登录</title>
+</head>
+<style>
+.state1{
+    color:#aaa;
+}
+.state2{
+    color:#ED8304;
+}
+.state3{
+    color:red;
+}
+.state4{
+    color:green;
+}
+</style>
+<body>
+	<div class="loginContainenr">
+		<header class="header">
+			<div class="fix_nav">
+				<div style="max-width:768px;margin:0 auto;background:#D91D37;position: relative;">
+					<a class="nav-left back-icon" href="index.php">返回</a>
+					<div class="tit">账户登录</div>
+				</div>
+			</div>
+		</header>
+		<!--登录功能-->
+		<div class="login-box">
+		<!--登录表单开头哦-->
+		<form method="post" action="userController.php?flag=login" class="formpage">
+			<div class="login-con">
+				<div class="form-group">
+					<input type="text" placeholder="邮箱/手机号码/账号登录" id="logintype" name="logintype" />
+					<span class='state1'>邮箱/手机号码不正确</span>
+				</div>
+				<div class="form-group">
+					<input  type="password" placeholder="密码" id="loginPwd" name="loginPwd" />
+					<span class='state1'>密码不正确</span>
+				</div>
+				<div class="form-group">
+					<button type="submit" style="background:#D91D37;color:#fff" name="submit" class="submit">
+						登录
+					</button>
+			    </div>
+		</form>
+			<!--表单结尾-->
+				<!--分割线-->
+				<div></div>
+				<div class="form-group">
+					<a href="register.html" class="signcom select-form">没有账号？马上注册</a>
+				</div>
+				<div class="form-group">
+					<a href="#" class="signcom">忘记密码？重置</a>
+				</div>
+			</div>
+		</div>
+</div>
+</body>
+</html>
+<!-- 进行提交前的表单验证 -->
+<script>
+$(document).ready(function  () {
+var ok1=false;
+var ok2=false;
+// 验证用户名
+$('input[name="logintype"]').focus(function(){
+    $(this).next().text('用户名应该为6-20位之间').removeClass('state1').addClass('state2');
+}).blur(function(){
+if($(this).val().length >= 6 && $(this).val().length <=20 && $(this).val()!=''){
+        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+        ok1=true;
+    }else{
+        $(this).next().text('用户名应该为6-20位之间').removeClass('state1').addClass('state3');
+    }
+});
+$('input[name="loginPwd"]').focus(function(){
+    $(this).next().text('密码应该为4-20位之间').removeClass('state1').addClass('state2');
+}).blur(function(){
+if($(this).val().length >=3 && $(this).val().length <=20 && $(this).val()!=''){
+        $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+        ok2=true;
+    }else{
+        $(this).next().text('密码应该为4-20位之间').removeClass('state1').addClass('state3');
+    }
+});
+
+$('.submit').click(function(){
+	     if(ok1 && ok2 ){
+            $('.formpage').submit();
+        }else{
+            return false;
+        }
+    });
+});
+
+</script>

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+@media (min-width: 760px) {
+  .gDetaContainer {
+    max-width: 768px!important;position: relative;/*background:#fff;*/
+  }
+}
+@media (min-width: 760px) {
+  .container {
+    max-width: 768px!important;position: relative;/*background:#fff;*/
+  }
+}
+.gDetaContainer{margin: 0 auto;background: #fff;position: relative;color: #333333;}
+.goodsInfo{font-size: 14px;padding:0 10px;}
+.tit{color: #fff;/* font-size: 18px; */font-weight: normal;height: 100%; text-align: center;font-size:18px;}
+.goodsTit h5{ line-height: 20px; margin: 10px 0;font-size: 14px;}
+.goodsComm{color: #999999; font-size: 12px;}
+.symbol{color: #ce0000; font-size:14px;}
+.goodsColor{margin-top: 10px;position: relative;}
+.goodsNum{position: relative;margin-top: 10px;}
+.goodsColor dl,.goodsSyam{color:#333333;position: absolute; padding-left:70px; left: 0; top: 0;}
+.goodsColor dl dd{ float: left; width: 40px;height: 25px; border: 1px solid #929292;text-align: center;line-height: 25px;margin-right: 5px;border-radius: 3px;}
+.goodsColor  label,.goodsNum label{width: 70px; height:25px; display: inline-block; line-height: 25px;}
+.goodsSyam a,.goodsNum input{display: inline-block; width: 40px;height: 25px; border: 1px solid #929292;text-align: center;line-height: 25px;margin-right: 5px;border-radius: 3px;;}
+.goodsColor .active{border:1px solid #ce0000; background: url(../images/checkIcont.png) no-repeat right bottom;}
+.btn-fav,.cart-wrap{width:55px; height: 50px; display:inline-block; text-align:center; position:relative; }
+.i-fav,.i-cart{display: block; width: 28px; height: 28px; margin:0 auto; background:url(../images/icon.png) no-repeat; background-size: 310px 100px;}
+.i-fav{background-position:-150px -1px;}
+.i-cart{background-position: -76px -37px;}
+.buy-info{position: relative;}
+.add-num{background-color:#f63234; display:block; position:absolute; right:0; top:5px; width:15px; height:15px; line-height:15px; font-size:12px; border-radius:50%; color:#fff;}
+.buy-btn-fix{padding:8px; position:absolute; right:0; top:0;}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>管理员登录</title>
+  <meta charset="utf-8">
+<link href="css/shop.css" type="text/css" rel="stylesheet" />
+<link href="css/Sellerber.css" type="text/css"  rel="stylesheet" />
+<link href="css/bkg_ui.css" type="text/css"  rel="stylesheet" />
+<link href="font/css/font-awesome.min.css"  rel="stylesheet" type="text/css" />
+</head>
+<body class="login_style login-layout" style="overflow-y:scroll;"> 
+ <div class="loginbody">
+  <div class="login-container">
+   <div class="login_logo"><img src="images/logo.png" /></div>
+    <div class="position-relative">
+     <div id="login_add" class="login-box widget-box no-border visible">
+      <div class="widget-main">
+      <h4 class="header blue lighter bigger"><i class="fa fa-coffee green"></i>&nbsp;&nbsp;&nbsp;管理员登录</h4>
+      <div class="clearfix">
+       <div class="login_icon"><img src="images/login_bg.png" /></div>
+       <div class="add_login_cont Reg_log_style ">
+        <form class="login" id="login" method="post" action="adminController.php">
+         <ul class="r_f">
+          <li class="frame_style form_error"><label class="user_icon"></label><input name="username" data-name="用户名" type="text" id="username"  placeholder='用户名'><i></i></li>
+          <li class="frame_style form_error"><label class="password_icon"></label><input name="userpwd" data-name="密码" type="password" id="userpwd"  placeholder='密码'><i></i></li>
+         </ul>
+        </div>
+        <div class="login_Click_Actions">
+          <button type="submit" class="button_width  btn btn-sm btn-primary" id="login_btn"><i class="fa fa-key"></i>&nbsp;&nbsp;登录</button>
+        </form>
+       </div>
+      </div>
+      </div>
+     </div>
+   </div>
+   </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script charset="utf-8" src="js/jquery.min.js"></script>
+<script charset="utf-8" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/formValidation.js"></script>
+
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/loginPage.css">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no" name="format-detection">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1;user-scalable=no;">
+<title>帮助中心</title>
+<style type="text/css">
+html { width: 100%; height: 100%;font-size:100px}
+#content_div{width:100%; max-width: 768px; min-width:320px; margin: 0 auto; clear:both; margin-top:0; background:#f7f7f7; overflow:hidden; min-height:8rem;}
+/*帮助中心*/	
+.help_01{ padding:0 0.11rem;}
+.help_01 ul{height:1.0rem;}
+.help_01 ul li{ float:left; width:2.4rem; line-height:1.0rem; font-size:0.22rem; color:#ccc;}
+.help_01 ul li i{ vertical-align:middle; margin-bottom:0.04rem; margin-right:0.04rem; display: inline-block; width:0.6rem; height:0.6rem;
+background: url(../images/help_i.png) no-repeat;background-size: 0.6rem 1.8rem;}
+.help_01 ul li:nth-of-type(1) i{background-position: 0rem 0rem;}	
+.help_01 ul li:nth-of-type(2) i{background-position: 0rem -0.6rem;}
+.help_01 ul li:nth-of-type(3) i{background-position: 0rem -1.2rem;}
+
+.help_02{ background:#fff; border-bottom:1px solid #d5d5d5; border-top:1px solid #e4e4e4;}
+.help_02 ul{ padding:0.26rem 0;height:1.08rem;}
+.help_02 ul li{ float:left; width:3.19rem; height:1.08rem; margin:0 auto; text-align:center;}
+.help_02 ul li:nth-of-type(1){ border-right:0.02rem solid #dbdbdb;}
+
+.help_02 ul li i{display: inline-block; z-index:101;
+    margin-top:0rem;
+	width: 0.8rem;
+	height: 0.6rem;}
+.help_02 ul li:nth-of-type(1) i	{background: url(../images/he_i01.png) no-repeat;background-size: 0.8rem 0.6rem;}
+.help_02 ul li:nth-of-type(2) i	{background: url(../images/he_i02.png) no-repeat;background-size: 0.8rem 0.6rem;}
+
+.help_02 ul li p{ line-height:0.005rem; color:#666; font-size:0.24rem; text-align:center; vertical-align:top;}
+.help_box{ border-bottom:1px solid #e8e8e8;}
+.help_box h2{ padding-top:0.12rem; padding-left:0.24rem; line-height:0.46rem; font-size:0.18rem; color:#666;}
+.help_box dl{ padding:0 0.3rem; background:#fff; border-top:1px solid #e8e8e8;}
+.help_box dl dt{ padding:0.24rem 0.4rem 0.24rem 0; line-height:0.36rem; font-size:0.24rem; color:#333; position:relative;}
+
+.help_box dl dt i{
+ position: absolute;top: 0.23rem; right:-0.1rem;
+  background: url(../images/he_i04.png) no-repeat; background-size: 0.4rem 0.4rem;
+  display: inline-block; 
+  width: 0.4rem;height: 0.4rem;
+}
+.help_box dl dt.new_i i{  background: url(../images/he_i03.png) no-repeat; background-size: 0.4rem 0.4rem;}
+
+
+.help_box dl dd{ padding:0 0.24rem 0.2rem 0.24rem; display:none;}
+.help_box dl dd p{ font-size:0.22rem; color:#a0a0a0; line-height:0.4rem; padding-top:0.08rem;}
+
+.help_bot{ padding-top:0.6rem;}
+.help_bot ul{ padding:0.26rem 0;}
+.help_bot ul li{ height:0.46rem; text-align:center; line-height:0.46rem; font-size:0.22rem; color:#a0a0a0;}
+.help_bot ul li a{ color:#007aff;}
+
+</style>
+</head>
+<body>
+	<div class="loginContainenr">
+		<header class="header">
+			<div class="fix_nav">
+				<div style="max-width:768px;margin:0 auto;background:#D91D37;position: relative;">
+					<a class="nav-left back-icon" href="userPage.php">返回</a>
+					<div class="tit">帮助中心</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="content_div">
+             <div class="help_01">
+               <ul>
+                <li><i></i>公正公开</li>
+                <li><i></i>支付保障</li>
+                <li><i></i>正品保障</li>
+               </ul>
+             </div>
+             <div class="help_02">
+               <ul>
+                <li>
+                 <i></i>
+                 <p>商品配送</p>
+                </li>
+                <li>
+                 <i></i>
+                 <p>订单管理</p>
+                </li>    
+               </ul>
+             </div>
+             <div class="help_box">
+              <h2>热门问题</h2>
+              <dl>
+               <dt>1、口红怎么查防伪？怎么分辨真假？ <i></i></dt>
+               <dd><p>口红可以扫描二维码进去官网或者直接登陆官网，然后刮开防伪涂层，输入防伪码就可以查询真伪</p>
+               </dd>
+              </dl>
+              <dl>
+               <dt>2、如何挑选属于自己的化妆品<i></i></dt>
+               <dd>  
+               <p>1、皮肤的清洁是很重要的。千万不要用皂性的、很碱性的洗面剂来洗脸，要用中性的，这样它本身能起到保护皮肤的作用，让你的肌肤越来越滋润无比
+				2、用油脂含量比较多的滋润水。任何一种皮肤都需要补充水分，油性皮肤也不例外。选用从植物的花草中提取的滋润水，没有酒精成分，保湿时间也比较长，能很快地跟皮肤贴紧，能够抓住皮肤
+				3、涂抹精华液。30岁以上的妈妈，皮肤开始衰老，都会出现色素沉淀、黑斑、老化等现象，在涂抹滋润水之后要涂抹精华液（除皱精华液与美白精华液），可以有效地避免皮肤提前松弛的问题，减缓衰老速度
+				4、润肤霜要用油包水的，滋润水是水包油的，皮肤只有达到水分和油分的均衡，才会觉得舒适，防止衰老、防止干燥。
+				5、隔离霜必须用。平时，紫外线存在于光线或者是灯光中，只要有光线的地方都会有紫外线。紫外线由于反射的作用，光线打到墙上，也会反射到脸上，并不是光线照在脸上才会有紫外线。</p>
+               </dd>
+              </dl>
+              
+               <dl>
+               <dt>3、如何保养自己的皮肤？<i></i></dt>
+               <dd>  
+               <p>1、增加维生素的摄入。2、保持充足的睡眠。3、注意多喝水。4、选择适合的保湿用品。5、选用加湿器增加房间湿度
+。</p>
+               </dd>
+              </dl>
+             
+             </div>
+             <div class="help_bot">
+              <ul>
+                <li><label class="ui-checkbox">
+								<input type="checkbox" name="checkbox" checked="checked">我已阅读并同意
+							</label><a>《使用条款及隐私政策》</a></li>
+                <li>客服电话：<a href="tel:0571-26201163" style=" color:#a0a0a0;">343075</a></li>
+              </ul>
+             
+             </div>
+		
+        
+      </div>
+	</div>
+<!-- <script src="js/jquery-2.1.4.js"></script> -->
+	<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript">
+// 收缩展开效果
+$(document).ready(function(){
+$(".help_box dl dt").toggle(function(){
+ $(this).next(".help_box dl dd").animate({height: 'toggle', opacity: 'toggle'}, "slow");
+ $(this).addClass("new_i");
+},function(){
+$(this).next(".help_box dl dd").animate({height: 'toggle', opacity: 'toggle'}, "slow");
+  $(this).removeClass('new_i')	 
+});
+});
+</script>
+</body>
+</html>

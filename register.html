@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script charset="utf-8" src="js/jquery.min.js"></script>
+<script charset="utf-8" src="js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/loginPage.css">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="telephone=no" name="format-detection">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1;user-scalable=no;">
+	<title>账户登录</title>
+</head>
+<body>
+	<div class="loginContainenr">
+		<header class="header">
+			<div class="fix_nav">
+				<div style="max-width:768px;margin:0 auto;background:#D91D37;position: relative;">
+					<a class="nav-left back-icon" href="loginPage.html">返回</a>
+					<div class="tit">账户注册</div>
+				</div>
+			</div>
+		</header>
+		<!--注册表单功能-->
+		<div class="signup-email">
+		    <form action="insertData.php" method="post" name="form" onsubmit="return check()" >
+				<div class="form-group">
+					<div class="signup-form">
+						<input type="text" placeholder="邮箱注册" id="Regmail" maxlength="30" name="Regmail">
+						<a href="#" class="signup-select">手机注册</a>
+						<span class="notEmail"></span>
+				</div>
+				</div>
+				<div class="form-group">
+					<input type="text" placeholder="您的名字" name="RegmailName" maxlength="30" id="RegmailName" min="6"/>
+					<span class="notname"></span>
+				</div>
+				<div class="form-group">
+					<input  type="password" placeholder="密码（字母、数字，至少六位）" min="6" maxlength="25" id="mailPwd" name="mailPwd" />
+					<span class="notPwd"></span>
+				</div>
+				<div class="form-group">
+					<button type="submit" style="background:#D91D37">
+					<!--<a href="#" class="signcom">注册</a>-->	
+					注册
+					</button>
+				</div>
+		    </form>	
+				<div class="form-group">
+					<a href="loginPage.html"  class="signcom" id="accountsEmail">已有账号？登录</a>
+				</div>			
+		</div>
+
+		<div class="signup-tel" style="display:none;">
+				<div class="form-group">
+					<div class="signup-form">
+						<input type="text" placeholder="手机号码注册">
+						<a href="#" class="signup-select">邮箱注册</a>
+				</div>
+				</div>
+				<div class="form-group   code">
+					<input type="text" class="pwd">
+					<a href="#" class="VerificCode">获取验证码</a>
+				</div>
+				<div class="form-group">
+					<input  type="password" placeholder="密码">
+				</div>
+				<div class="form-group">
+					<button type="submit"  style="background:#D91D37" >
+						注册
+					</button>
+				</div>
+				<div class="form-group">
+					<a href="#"  class="signcom" id="accountsTel">已有账号？登录</a>
+				</div>				
+		</div>
+
+
+		<!--登录功能-->
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+  		$(".signup-email .signup-select").click(function(){
+  			var tempText=$(this).text();
+  			if(tempText="手机注册"){
+  				$(".signup-tel").css("display","block");
+  				$(".signup-email").hide();
+  			}
+  		});
+  		$(".signup-tel .signup-select").click(function(){
+  			var tempText=$(this).text();
+  			if(tempText="手机注册"){
+  				$(".signup-email").css("display","block");
+  				$(".signup-tel").hide();
+  			}
+  		});
+        //进行输入验证
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#Regmail').blur(function(){
+		//邮箱的格式验证
+		if($('#Regmail').val()==""){
+			$('.notEmail').css({"display":"block","color":"red"});
+			$('.notEmail').text("邮箱不能为空");
+			
+		}
+		else if(!$("#Regmail").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)){
+			$('.notEmail').css({"display":"block","color":"red"});
+			$('.notEmail').text("邮箱格式不正确");
+			
+		}
+		else{
+			$('.notEmail').css({"display":"block","color":"#009c62"});
+			$('.notEmail').text("邮箱格式正确");
+		}
+	});
+	//邮箱用户名验证
+	$('#RegmailName').blur(function () {
+		if($('#RegmailName').val()=="  "){
+			$('.notname').css({"display":"block","color":"red"});
+			$('.notname').text("用户名不能为空");
+			
+		}
+		//忽略空格
+		else if($('#RegmailName').val().length<6){
+			$('.notname').css({"display":"block","color":"red"});
+			$('.notname').text("用户名不能少于六位");
+			
+		}
+		else{
+			$('.notname').css({"display":"block","color":"#009c62"});
+			$('.notname').text("用户名正确");
+		}
+	});
+	//验证密码是否正确
+	$('#mailPwd').blur(function () {
+		if($('#mailPwd').val()==""){
+			$('.notPwd').css({"display":"block","color":"red"});
+			$('.notPwd').text("密码不能为空");
+			
+		}
+		//忽略空格
+		else if($('#mailPwd').val().length<6){
+			$('.notPwd').css({"display":"block","color":"red"});
+			$('.notPwd').text("密码不能少于六位");
+			
+		}
+		else{
+			$('.notPwd').css({"display":"block","color":"#009c62"});
+			$('.notPwd').text("密码正确");
+		}
+	});
+});
+</script>
+<script type="text/javascript">
+//form提交前，验证：营销活动最少选择两个
+function check(){
+	//邮箱、名字
+	var Regmail=$('#Regmail').val();
+	var RegmailName=$('#RegmailName').val();
+	var mailPwd=$('#mailPwd').val();
+    if(Regmail==''){
+    	   $('.notEmail').css({"display":"block","color":"red"});
+		   $('.notEmail').text("邮箱不能为空");
+        return false;
+    }else if(!Regmail.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)){
+			$('.notEmail').css({"display":"block","color":"red"});
+			$('.notEmail').text("邮箱格式不正确");
+			return false;
+		}else if(RegmailName=""){
+			$('.notname').css({"display":"block","color":"red"});
+			$('.notname').text("用户名不能为空");
+			return false;
+		}else if((replace(/[^\x00-\xff]/g, RegmailName).length)<6){
+			$('.notname').css({"display":"block","color":"red"});
+			$('.notname').text("用户名不能少于六位");
+			return false;
+			
+		}else if(mailPwd=""){
+			$('.notname').css({"display":"block","color":"red"});
+			$('.notname').text("密码不能为空");
+			return false;
+		}else if((replace(/[^\x00-\xff]/g, mailPwd).length)<6){
+			$('.notname').css({"display":"block","color":"red"});
+			$('.notname').text("密码不能少于六位");
+			return false;
+			
+		}else{
+        return true;//不写此返回值也行，此时就直接提交了
+    }
+}
+</script>
+
+</body>
+</html>
